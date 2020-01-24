@@ -1,0 +1,4 @@
+function showForm(){
+    var form = document.getElementById("the-form");
+    form.classList.toggle('show');
+}

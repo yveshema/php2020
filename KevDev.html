@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>KevDev</title>
+  </head>
+  <body>
+    <h1>KevDev ecommerce store</h1>
+    <p>The checkout functionality appears to work as intended. The issue with the checkout process might have to do with the <b>Close</b> button on top of the widget. It remains active even during the card processing, and if inadventently pressed would cause the processing to abort.</p>
+    <p>One solution would be to de-activate the button when the user clicks on <b>Submit</b> and re-activate it afterwards so the user is able to close the widget after purchase.</p>
+    <hr />
+    <div id="widget">
+      <button id="close" onclick="handleClose()">Close</button>
+      <form>
+	<input id="submit" value="submit" onclick="handleSubmit()"/>
+      </form>
+    </div>
+
+    <script>
+      var close = document.getElementById("close");
+      var submit = document.getElementById("submit");
+      var widget = document.getElementById("widget");
+
+      function handleClose(){
+	  widget.style.display= "none";
+      }
+
+      function handleSubmit(){
+	  close.disabled = true;
+	  setTimeout(function(){
+	      close.disabled = false;
+	  }, 5000);
+      }
+      
+    </script>
+  </body>
+</html>
